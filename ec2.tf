@@ -61,5 +61,5 @@ resource "aws_instance" "web1" {
     instance_type = "t2.micro"
     subnet_id              = aws_subnet.Public.id
     vpc_security_group_ids = [aws_security_group.tsg.id]
-    key_name = "tf-key"
+    key_name = "tf-keypair"
     }
