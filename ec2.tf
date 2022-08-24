@@ -20,7 +20,7 @@ resource "aws_subnet" "Private" {
   }
 }
 
-        resource "aws_subnet" "Public" {
+  resource "aws_subnet" "Public" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = "10.0.2.0/24"
 
@@ -62,4 +62,7 @@ resource "aws_instance" "web1" {
     subnet_id              = aws_subnet.Public.id
     vpc_security_group_ids = [aws_security_group.tsg.id]
     key_name = "tf-keypair"
-    }
+tags = {
+    Name = "Test-server"
+  }
+}
